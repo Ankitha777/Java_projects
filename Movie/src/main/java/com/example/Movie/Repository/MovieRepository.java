@@ -12,7 +12,6 @@ import com.example.Movie.entity.Movie;
  public interface MovieRepository extends  JpaRepository<Movie, Integer>
  { 
 	 List<Movie> findAll();
-	 //List<Movie> findByMID();
 	List<Movie> findByMID(int mid);
  }
  
