@@ -12,13 +12,14 @@ import javax.persistence.Table;
 @Table(name="rating")
 public class Rating {
 	@Id
-	public String CID;
-	@Column(nullable = false)
 	public String name;
+	@Column(nullable = false)
+	public String CID;
+	
 	@Column(nullable = true)
 	public Float avgRating;
 	@Column(nullable = false)
-	public Float RatingCus;
+	public Float Ratingcus;
 	@ManyToOne
 	@JoinColumn
 	public Movie movieId;
@@ -26,7 +27,7 @@ public class Rating {
 		return CID;
 	}
 	public void setCID(String cID) {
-		CID = cID;
+		this.CID = CID;
 	}
 	public String getName() {
 		return name;
@@ -41,10 +42,10 @@ public class Rating {
 		this.avgRating = avgRating;
 	}
 	public Float getRating() {
-		return RatingCus;
+		return Ratingcus;
 	}
 	public void setRating(Float rating) {
-		RatingCus = rating;
+		Ratingcus = rating;
 	}
 	public Movie getMovieId() {
 		return movieId;
