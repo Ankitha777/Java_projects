@@ -89,7 +89,7 @@ public class MyService {
 		Iterator iterator=Order_tostore.iterator();
 		int n=0;
 		int item_n = 0;
-		int i = 1;
+		int i = 0;
 		String coll_orders="";
 		int st;
 		item_n=Order_tostore.get(o);
