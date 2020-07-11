@@ -15,6 +15,7 @@ public class Myservice {
 		ArrayList<String> split_items=new ArrayList<String>();
 		ArrayList<Integer> Itemnumber_toStore=new ArrayList<Integer>();
 		List<String> str1 = null;
+		Integer k;
 		System.out.println("Enter the total no of orders you have");
 		Scanner n = new Scanner(System.in);
 		int Ordererd_list = n.nextInt();
@@ -33,7 +34,13 @@ public class Myservice {
 			   }
 		//Resplit and extract the numbers,for ex:item 2->2
 		for(String Str2:split_items) {
-			Integer k = Integer.parseInt(Str2.substring(5));
+			List<String> str3=Stream.of(Str2.split(" ")).map (elem -> new String(elem))
+				      .collect(Collectors.toList());
+			if(str3.size()==3) 
+				 k =Integer.parseInt(str3.get(2));
+			else
+				k=Integer.parseInt(str3.get(1));
+			
 			Itemnumber_toStore.add(k);
 		}
 		//To find most repeated number
@@ -67,7 +74,7 @@ public class Myservice {
 				      .collect(Collectors.toList());
 			//i as a reference to find order seq
 			for(String str2:str1) {
-				if(str2.equalsIgnoreCase("item "+maxVal)) {
+				if(str2.equalsIgnoreCase("item "+maxVal)||str2.equalsIgnoreCase(" item "+maxVal)) {
 					store_orderList=store_orderList+"Order "+i+",";
 				}
 			}
